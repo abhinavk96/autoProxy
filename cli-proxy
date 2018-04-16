@@ -73,40 +73,42 @@ On_ICyan='\033[0;106m'    # Cyan
 On_IWhite='\033[0;107m'   # White
 
 #Special symbols
-Tick_Mark='\xE2\x9C\x94'
-Cross='\xE2\x9D\x8C'                        
-Green_Tick_Mark='\033[0;32m\xE2\x9C\x94\033[0m'
-Red_Cross='\033[0;31m\xE2\x9D\x8C\033[0m'
+Tick_Mark='\xE2\x9C\x94'                        # Check mark
+Cross='\xE2\x9D\x8C'                            # Cross mark
+Green_Tick_Mark='\033[0;32m\xE2\x9C\x94\033[0m' # Green check mark
+Red_Cross='\033[0;31m\xE2\x9D\x8C\033[0m'       # Red cross mark
+
+
 echo -e "${Green}$1 ${NC}"
 if [ ! $1 ]; then
-echo -e "${Red}Incorrect usage: Please enter the proxy you would like to set.${NC}"
-echo -e "${Red}Usage${NC}: ./cli-proxy ${Cyan}'<proxy>'${NC}"
-echo "Example: ./cli-proxy 'http://172.31.1.4:8080'" 
+    echo -e "${Red}Incorrect usage: Please enter the proxy you would like to set.${NC}"
+    echo -e "${Red}Usage${NC}: ./cli-proxy ${Cyan}'<proxy>'${NC}"
+    echo "Example: ./cli-proxy 'http://172.31.1.4:8080'" 
 else
-npm config --global set proxy $1
-npm config --global set https-proxy $1
-npm config set proxy $1
-npm config set https-proxy $1
-git config --global http.proxy $1
-git config --global https.proxy $1
-git config http.proxy $1
-git config https.proxy $1
+    npm config --global set proxy $1
+    npm config --global set https-proxy $1
+    npm config set proxy $1
+    npm config set https-proxy $1
+    git config --global http.proxy $1
+    git config --global https.proxy $1
+    git config http.proxy $1
+    git config https.proxy $1
 
-npmHTTP="$(npm config get proxy)"
-npmHTTPS="$(npm config get https-proxy)"
-gitHTTP="$(git config http.proxy)"
-gitHTTPS="$(git config https.proxy)"
-echo $npmHTTP
-if [ $npmHTTP == "$1/" ]; then
-echo -e "NPM user http proxy successfully set to $1 ${Green_Tick_Mark}}"
-fi
-if [ $npmHTTPS == "$1/" ]; then
-echo -e "NPM user https proxy successfully set to $1 ${Green_Tick_Mark}"
-fi
-if [ $gitHTTP == "$1" ]; then
-echo -e "Git user http proxy successfully set to $1 ${Green_Tick_Mark}"
-fi
-if [ $gitHTTPS == "$1" ]; then
-echo -e "Git user https proxy successfully set to $1 ${Green_Tick_Mark}"
-fi
+    npmHTTP="$(npm config get proxy)"
+    npmHTTPS="$(npm config get https-proxy)"
+    gitHTTP="$(git config http.proxy)"
+    gitHTTPS="$(git config https.proxy)"
+    echo $npmHTTP
+    if [ $npmHTTP == "$1/" ]; then
+        echo -e "NPM user http proxy successfully set to $1 ${Green_Tick_Mark}}"
+    fi
+    if [ $npmHTTPS == "$1/" ]; then
+        echo -e "NPM user https proxy successfully set to $1 ${Green_Tick_Mark}"
+    fi
+    if [ $gitHTTP == "$1" ]; then
+        echo -e "Git user http proxy successfully set to $1 ${Green_Tick_Mark}"
+    fi
+    if [ $gitHTTPS == "$1" ]; then
+        echo -e "Git user https proxy successfully set to $1 ${Green_Tick_Mark}"
+    fi
 fi
