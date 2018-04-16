@@ -96,8 +96,12 @@ else
 
     npmHTTP="$(npm config get proxy)"
     npmHTTPS="$(npm config get https-proxy)"
+    npmHTTPG="$(npm config --global get proxy)"
+    npmHTTPSG="$(npm config --global get https-proxy)"
     gitHTTP="$(git config http.proxy)"
     gitHTTPS="$(git config https.proxy)"
+    gitHTTPG="$(git config --global http.proxy)"
+    gitHTTPSG="$(git config --global https.proxy)"
     echo $npmHTTP
     if [ $npmHTTP == "$1/" ]; then
         echo -e "NPM user http proxy successfully set to $1 ${Green_Tick_Mark}}"
@@ -110,5 +114,17 @@ else
     fi
     if [ $gitHTTPS == "$1" ]; then
         echo -e "Git user https proxy successfully set to $1 ${Green_Tick_Mark}"
+    fi
+    if [ $npmHTTPG == "$1/" ]; then
+        echo -e "NPM global http proxy successfully set to $1 ${Green_Tick_Mark}}"
+    fi
+    if [ $npmHTTPSG == "$1/" ]; then
+        echo -e "NPM global https proxy successfully set to $1 ${Green_Tick_Mark}"
+    fi
+    if [ $gitHTTPG == "$1" ]; then
+        echo -e "Git global http proxy successfully set to $1 ${Green_Tick_Mark}"
+    fi
+    if [ $gitHTTPSG == "$1" ]; then
+        echo -e "Git global https proxy successfully set to $1 ${Green_Tick_Mark}"
     fi
 fi
