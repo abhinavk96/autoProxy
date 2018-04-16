@@ -16,11 +16,19 @@ git config https.proxy $1
 
 npmHTTP="$(npm config get proxy)"
 npmHTTPS="$(npm config get https-proxy)"
+gitHTTP="$(git config http.proxy)"
+gitHTTPS="$(git config https.proxy)"
 echo $npmHTTP
 if [ $npmHTTP == "$1/" ]; then
-echo "NPM http proxy successfully set to $1"
+echo "NPM user http proxy successfully set to $1"
 fi
 if [ $npmHTTPS == "$1/" ]; then
-echo "NPM https proxy successfully set to $1"
+echo "NPM user https proxy successfully set to $1"
+fi
+if [ $gitHTTP == "$1" ]; then
+echo "Git user http proxy successfully set to $1"
+fi
+if [ $gitHTTPS == "$1" ]; then
+echo "Git user https proxy successfully set to $1"
 fi
 fi
