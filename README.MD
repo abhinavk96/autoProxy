@@ -22,6 +22,10 @@ Example
 ```bash
 ./cli-proxy 'http://172.31.1.4:8080
 ```
+
+```bash
+./cli-proxy reset
+```
 ### Currently changes proxy for:
 * npm
 * git
