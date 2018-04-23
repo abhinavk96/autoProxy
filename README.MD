@@ -26,6 +26,17 @@ Example
 ```bash
 ./cli-proxy reset
 ```
+## Sample output
+
+**Setting up proxies:**
+
+![Screenshot](screenshot-1.png)
+
+
+**Resetting Proxies**
+
+![Screenshot](screenshot-2.png)
+
 ### Currently changes proxy for:
 * npm
 * git
