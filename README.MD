@@ -20,7 +20,7 @@ Navigate to the autoProxy directory and use
 
 Example
 ```bash
-./cli-proxy 'http://172.31.1.4:8080`
+./cli-proxy 'http://172.31.1.4:8080'
 ```
 
 ```bash
