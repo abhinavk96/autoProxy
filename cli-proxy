@@ -104,6 +104,8 @@ else
         git config --global https.proxy $1
         git config http.proxy $1
         git config https.proxy $1
+        yarn config set proxy $1
+        yarn config set https-proxy $1
 
         npmHTTP="$(npm config get proxy)"
         npmHTTPS="$(npm config get https-proxy)"
@@ -113,6 +115,9 @@ else
         gitHTTPS="$(git config https.proxy)"
         gitHTTPG="$(git config --global http.proxy)"
         gitHTTPSG="$(git config --global https.proxy)"
+        yarnHTTP="$(yarn config get proxy)"
+        yarnHTTPS="$(yarn config get https-proxy)"
+
         echo $npmHTTP
         if [ $npmHTTP == "$1/" ]; then
             echo -e "NPM user http proxy successfully set to $1 ${Green_Tick_Mark}}"
@@ -137,6 +142,12 @@ else
         fi
         if [ $gitHTTPSG == "$1" ]; then
             echo -e "Git global https proxy successfully set to $1 ${Green_Tick_Mark}"
+        fi
+        if [ $yarnHTTP == "$1" ]; then
+            echo -e "Yarn http proxy set to $1 ${Green_Tick_Mark}"
+        fi
+        if [ $yarnHTTPS == "$1" ]; then
+            echo -e "Yarn https proxy set to $1 ${Green_Tick_Mark}"
         fi
     fi
 fi
