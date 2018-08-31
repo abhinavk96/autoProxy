@@ -94,7 +94,11 @@ else
         git config --global --unset https.proxy
         git config --unset http.proxy
         git config --unset https.proxy
-        echo -e "${Green}Proxies have been successfully reset for ${BPurple} npm ${Green} and ${BPurple}git.${NC}"
+        yarn config delete proxy
+        yarn config delete https-proxy
+        yarn config delete proxy --global
+        yarn config delete https-proxy --global
+        echo -e "${Green}Proxies have been successfully reset for ${BPurple} npm ${Green}, ${BPurple}yarn ${Green} and ${BPurple}git.${NC}"
     else
         npm config --global set proxy $1
         npm config --global set https-proxy $1
