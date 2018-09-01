@@ -1,4 +1,8 @@
 #!/bin/bash
+#title           :cli-proxy.sh
+#description     :A minimal bash script which allows users to customise network proxy in devtools
+#author		 :@CosmicCoder96
+
 # Reset
 NC='\033[0m'       # Text Reset
 
